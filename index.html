@@ -1,0 +1,1727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ambre Noir — Parisian Niche Fragrance House</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- DESIGN SYSTEM & CSS VARIABLES --- */
+        :root {
+            --bg-primary: #0e0e0e;
+            --bg-secondary: #161616;
+            --bg-card: #1a1a1a;
+            --accent-gold: #c68a3d;
+            --accent-gold-hover: #db9c4e;
+            --text-light: #f6f1e8;
+            --text-muted: #a39e93;
+            --text-dark: #0e0e0e;
+            --bg-light-section: #f6f1e8;
+            --border-color: rgba(198, 138, 61, 0.25);
+            --border-radius: 10px;
+            --font-heading: 'Cormorant Garamond', serif;
+            --font-body: 'Inter', sans-serif;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        /* --- BASE STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-light);
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .font-heading {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        button {
+            cursor: pointer;
+            border: none;
+            outline: none;
+            font-family: var(--font-body);
+            transition: var(--transition);
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .text-center { text-align: center; }
+        .text-gold { color: var(--accent-gold); }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background-color: var(--accent-gold);
+            color: var(--bg-primary);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-gold-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(198, 138, 61, 0.3);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--text-light);
+            border: 1px solid var(--accent-gold);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--accent-gold);
+            color: var(--bg-primary);
+            transform: translateY(-2px);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--text-light);
+            margin-bottom: 12px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+        }
+
+        /* --- SCROLL REVEAL ANIMATION --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- 1. TOP BAR --- */
+        .top-bar {
+            background-color: var(--accent-gold);
+            color: var(--bg-primary);
+            text-align: center;
+            padding: 8px 16px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* --- 2. NAVBAR --- */
+        .navbar {
+            position: sticky;
+            top: 0;
+            background-color: rgba(14, 14, 14, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(198, 138, 61, 0.15);
+            padding: 18px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-light);
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 36px;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .cart-icon {
+            position: relative;
+            background: none;
+            color: var(--text-light);
+            font-size: 1.3rem;
+            cursor: pointer;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -10px;
+            background-color: var(--accent-gold);
+            color: var(--bg-primary);
+            font-size: 0.75rem;
+            font-weight: 700;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 2px;
+            background-color: var(--text-light);
+            transition: var(--transition);
+        }
+
+        /* Mobile Nav Drawer */
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 320px;
+            height: 100vh;
+            background-color: var(--bg-secondary);
+            z-index: 1001;
+            padding: 80px 30px;
+            transition: var(--transition);
+            box-shadow: -5px 0 25px rgba(0,0,0,0.8);
+        }
+
+        .mobile-nav.active { right: 0; }
+
+        .mobile-nav-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            color: var(--text-light);
+            font-size: 1.8rem;
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .mobile-nav a {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* --- 3. HERO SECTION --- */
+        .hero {
+            position: relative;
+            height: 85vh;
+            min-height: 550px;
+            background: linear-gradient(rgba(14, 14, 14, 0.6), rgba(14, 14, 14, 0.8)), 
+                        url('https://images.unsplash.com/photo-1547887537-6158d64c35b3?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero-subtitle {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--accent-gold);
+            margin-bottom: 16px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 36px;
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        /* --- 4. MARQUEE STRIP --- */
+        .marquee-strip {
+            background-color: var(--bg-secondary);
+            border-y: 1px solid var(--border-color);
+            padding: 16px 0;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+        }
+
+        .marquee-item {
+            display: inline-block;
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            color: var(--accent-gold);
+            margin: 0 30px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* --- 5. FRAGRANCE FAMILIES --- */
+        .families-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .family-card {
+            position: relative;
+            height: 380px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .family-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .family-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .family-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(14,14,14,0.95), rgba(14,14,14,0.2));
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+        }
+
+        .family-overlay h3 {
+            font-size: 1.8rem;
+            margin-bottom: 6px;
+        }
+
+        .family-overlay p {
+            color: var(--accent-gold);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- 6. BESTSELLERS --- */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: var(--bg-card);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--border-color);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+        }
+
+        .product-img {
+            height: 280px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-notes-tag {
+            font-size: 0.75rem;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .product-title {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+        }
+
+        .product-price {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+
+        .product-info .btn {
+            margin-top: auto;
+            width: 100%;
+            padding: 10px;
+        }
+
+        /* --- 7. FEATURED SPOTLIGHT --- */
+        .spotlight-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            background-color: var(--bg-secondary);
+            border-radius: var(--border-radius);
+            padding: 50px;
+            border: 1px solid var(--border-color);
+        }
+
+        .spotlight-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .spotlight-main-img {
+            height: 400px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .spotlight-main-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .notes-pyramid {
+            margin: 24px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .note-item {
+            background-color: var(--bg-card);
+            padding: 12px 18px;
+            border-radius: 6px;
+            border-left: 3px solid var(--accent-gold);
+        }
+
+        .note-item strong {
+            color: var(--accent-gold);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+        }
+
+        .size-selector {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .size-btn {
+            padding: 8px 16px;
+            border: 1px solid var(--border-color);
+            background: none;
+            color: var(--text-light);
+            border-radius: 6px;
+
+        }
+
+        .size-btn.active, .size-btn:hover {
+            background-color: var(--accent-gold);
+            color: var(--bg-primary);
+        }
+
+        /* --- 8. THE MAKING PROCESS --- */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            position: relative;
+        }
+
+        .step-card {
+            background-color: var(--bg-card);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            position: relative;
+        }
+
+        .step-num {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            color: var(--accent-gold);
+            line-height: 1;
+            margin-bottom: 16px;
+        }
+
+        /* --- 9. PERFUMER STORY --- */
+        .story-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .story-img {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            height: 500px;
+        }
+
+        .story-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .counters-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .counter-item h3 {
+            font-size: 2.8rem;
+            color: var(--accent-gold);
+        }
+
+        .counter-item p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        /* --- 10. INGREDIENT SPOTLIGHT --- */
+        .ingredients-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .ingredient-card {
+            background-color: var(--bg-card);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .ingredient-img {
+            height: 180px;
+        }
+
+        .ingredient-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .ingredient-info {
+            padding: 20px;
+        }
+
+        .ingredient-origin {
+            font-size: 0.75rem;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+        }
+
+        /* --- 11. REVIEWS --- */
+        .reviews-slider {
+            display: flex;
+            gap: 24px;
+            overflow-x: auto;
+            padding-bottom: 20px;
+            scroll-snap-type: x mandatory;
+        }
+
+        .review-card {
+            flex: 0 0 320px;
+            scroll-snap-align: start;
+            background-color: var(--bg-card);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .reviewer-profile {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .reviewer-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .stars {
+            color: var(--accent-gold);
+            margin-bottom: 12px;
+        }
+
+        /* --- 12. GIFT SETS --- */
+        .bundles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .bundle-card {
+            background-color: var(--bg-card);
+            border-radius: var(--border-radius);
+            padding: 36px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .bundle-price {
+            font-size: 2rem;
+            font-family: var(--font-heading);
+            color: var(--accent-gold);
+            margin: 16px 0;
+        }
+
+        /* --- 13. FAQ ACCORDION --- */
+        .faq-accordion {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background-color: var(--bg-card);
+            border-radius: var(--border-radius);
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 20px 24px;
+            background: none;
+            color: var(--text-light);
+            text-align: left;
+            font-size: 1.1rem;
+            font-weight: 500;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 24px;
+            color: var(--text-muted);
+        }
+
+        .faq-item.active .faq-answer {
+            padding-bottom: 20px;
+        }
+
+        /* --- 14. NEWSLETTER --- */
+        .newsletter-section {
+            background: linear-gradient(rgba(14,14,14,0.9), rgba(14,14,14,0.9)), 
+                        url('https://images.unsplash.com/photo-1615397349754-cfa2066a298e?auto=format&fit=crop&w=1200&q=80') center/cover;
+            border-radius: var(--border-radius);
+            padding: 80px 40px;
+            text-align: center;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 30px auto 0;
+            gap: 12px;
+        }
+
+        .newsletter-form input {
+            flex-grow: 1;
+            padding: 14px 20px;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            background-color: rgba(14,14,14,0.8);
+            color: var(--text-light);
+            outline: none;
+        }
+
+        /* --- 15. FOOTER --- */
+        .footer {
+            background-color: #080808;
+            padding: 80px 0 30px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            margin-bottom: 16px;
+        }
+
+        .footer-links h4 {
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover { color: var(--text-light); }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* --- 16. CART DRAWER --- */
+        .cart-drawer-overlay {
+            position: fixed;
+            inset: 0;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .cart-drawer-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .cart-drawer {
+            position: fixed;
+            top: 0;
+            right: -450px;
+            width: 100%;
+            max-width: 450px;
+            height: 100vh;
+            background-color: var(--bg-secondary);
+            z-index: 2001;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+        }
+
+        .cart-drawer.active { right: 0; }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .cart-items {
+            flex-grow: 1;
+            overflow-y: auto;
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 16px;
+            background-color: var(--bg-card);
+            padding: 12px;
+            border-radius: 8px;
+        }
+
+        .cart-item img {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .cart-footer {
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+
+        /* --- GENERIC POPUP / MODAL --- */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background-color: rgba(0,0,0,0.85);
+            z-index: 3000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            transform: scale(0.8);
+            transition: var(--transition);
+        }
+
+        .modal-overlay.active .modal-card {
+            transform: scale(1);
+        }
+
+        .modal-icon {
+            font-size: 3rem;
+            color: var(--accent-gold);
+            margin-bottom: 16px;
+        }
+
+        /* --- RESPONSIVE MEDIA QUERIES --- */
+        @media (max-width: 1199px) {
+            .families-grid, .products-grid, .process-steps, .ingredients-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero-buttons { flex-direction: column; }
+            
+            .families-grid, .products-grid, .process-steps, .ingredients-grid, .bundles-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .spotlight-container, .story-container {
+                grid-template-columns: 1fr;
+                padding: 24px;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+
+            .section-padding { padding: 60px 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        Complimentary 2ml Bespoke Sample Included With Every Order
+    </div>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="nav-logo">AMBRE NOIR</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#fragrances">Fragrances</a></li>
+                <li><a href="#notes">Spotlight</a></li>
+                <li><a href="#story">Story</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="cart-icon" id="cartBtn">
+                    🛒 <span class="cart-count" id="cartCount">0</span>
+                </button>
+                <button class="hamburger" id="hamburgerBtn">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mobile-nav" id="mobileNav">
+        <button class="mobile-nav-close" id="mobileNavClose">&times;</button>
+        <ul>
+            <li><a href="#home" class="mobile-link">Home</a></li>
+            <li><a href="#fragrances" class="mobile-link">Fragrances</a></li>
+            <li><a href="#notes" class="mobile-link">Spotlight</a></li>
+            <li><a href="#story" class="mobile-link">Story</a></li>
+            <li><a href="#contact" class="mobile-link">Contact</a></li>
+        </ul>
+    </div>
+
+    <section class="hero" id="home">
+        <div class="hero-content reveal">
+            <p class="hero-subtitle">Parisian Niche Fragrance House • Est. 2013</p>
+            <h1>Crafted in Darkness,<br>Defined by Light</h1>
+            <p>Rare botanicals, hand-blended extraction, and timeless Parisian sophistication.</p>
+            <div class="hero-buttons">
+                <a href="#fragrances" class="btn btn-primary">Explore Collection</a>
+                <a href="#story" class="btn btn-outline">Our Heritage</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="marquee-strip">
+        <div class="marquee-content">
+            <span class="marquee-item">Hand-Blended</span> •
+            <span class="marquee-item">Rare Ingredients</span> •
+            <span class="marquee-item">Long-Lasting Extract</span> •
+            <span class="marquee-item">Cruelty-Free</span> •
+            <span class="marquee-item">Hand-Blended</span> •
+            <span class="marquee-item">Rare Ingredients</span> •
+            <span class="marquee-item">Long-Lasting Extract</span> •
+            <span class="marquee-item">Cruelty-Free</span> •
+        </div>
+    </div>
+
+    <section class="section-padding container reveal">
+        <div class="section-header">
+            <h2>Fragrance Families</h2>
+            <p>Explore our carefully curated olfactory spectrum</p>
+        </div>
+        <div class="families-grid">
+            <div class="family-card">
+                <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80" alt="Woody">
+                <div class="family-overlay">
+                    <h3>Woody & Smoked</h3>
+                    <p>Smoked Cedar, Agarwood, Amber</p>
+                </div>
+            </div>
+            <div class="family-card">
+                <img src="https://images.unsplash.com/photo-1508746829417-e6f548d8d6ed?auto=format&fit=crop&w=600&q=80" alt="Floral">
+                <div class="family-overlay">
+                    <h3>Nocturnal Floral</h3>
+                    <p>Black Rose, Jasmine, Tuberose</p>
+                </div>
+            </div>
+            <div class="family-card">
+                <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=600&q=80" alt="Oriental">
+                <div class="family-overlay">
+                    <h3>Opulent Oriental</h3>
+                    <p>Vanilla Resin, Myrrh, Spices</p>
+                </div>
+            </div>
+            <div class="family-card">
+                <img src="https://images.unsplash.com/photo-1616949755610-8c9bbc08f138?auto=format&fit=crop&w=600&q=80" alt="Fresh">
+                <div class="family-overlay">
+                    <h3>Citrus & Fresh</h3>
+                    <p>Bergamot, Vetiver, Pink Pepper</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding container reveal" id="fragrances">
+        <div class="section-header">
+            <h2>Iconic Creations</h2>
+            <p>Our most coveted Extraits de Parfum</p>
+        </div>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=600&q=80" alt="Santal Royal">
+                </div>
+                <div class="product-info">
+                    <span class="product-notes-tag">Woody / Amber</span>
+                    <h3 class="product-title">Santal Royal</h3>
+                    <div class="product-price">€245</div>
+                    <button class="btn btn-outline add-to-cart-btn" data-name="Santal Royal" data-price="245">Add To Cart</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=600&q=80" alt="Cuir Noir">
+                </div>
+                <div class="product-info">
+                    <span class="product-notes-tag">Smoked Leather</span>
+                    <h3 class="product-title">Cuir Noir</h3>
+                    <div class="product-price">€260</div>
+                    <button class="btn btn-outline add-to-cart-btn" data-name="Cuir Noir" data-price="260">Add To Cart</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=600&q=80" alt="Rose de Nuit">
+                </div>
+                <div class="product-info">
+                    <span class="product-notes-tag">Floral / Spice</span>
+                    <h3 class="product-title">Rose de Nuit</h3>
+                    <div class="product-price">€230</div>
+                    <button class="btn btn-outline add-to-cart-btn" data-name="Rose de Nuit" data-price="230">Add To Cart</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=80" alt="Oud Impérial">
+                </div>
+                <div class="product-info">
+                    <span class="product-notes-tag">Oriental</span>
+                    <h3 class="product-title">Oud Impérial</h3>
+                    <div class="product-price">€295</div>
+                    <button class="btn btn-outline add-to-cart-btn" data-name="Oud Impérial" data-price="295">Add To Cart</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=600&q=80" alt="Amber Absolu">
+                </div>
+                <div class="product-info">
+                    <span class="product-notes-tag">Warm Amber</span>
+                    <h3 class="product-title">Amber Absolu</h3>
+                    <div class="product-price">€250</div>
+                    <button class="btn btn-outline add-to-cart-btn" data-name="Amber Absolu" data-price="250">Add To Cart</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1615397349754-cfa2066a298e?auto=format&fit=crop&w=600&q=80" alt="Fleur de Soir">
+                </div>
+                <div class="product-info">
+                    <span class="product-notes-tag">Fresh Floral</span>
+                    <h3 class="product-title">Fleur de Soir</h3>
+                    <div class="product-price">€220</div>
+                    <button class="btn btn-outline add-to-cart-btn" data-name="Fleur de Soir" data-price="220">Add To Cart</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80" alt="Vétiver Solaire">
+                </div>
+                <div class="product-info">
+                    <span class="product-notes-tag">Earthy / Green</span>
+                    <h3 class="product-title">Vétiver Solaire</h3>
+                    <div class="product-price">€215</div>
+                    <button class="btn btn-outline add-to-cart-btn" data-name="Vétiver Solaire" data-price="215">Add To Cart</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1508746829417-e6f548d8d6ed?auto=format&fit=crop&w=600&q=80" alt="Vanilla Midnight">
+                </div>
+                <div class="product-info">
+                    <span class="product-notes-tag">Gourmand</span>
+                    <h3 class="product-title">Vanilla Midnight</h3>
+                    <div class="product-price">€240</div>
+                    <button class="btn btn-outline add-to-cart-btn" data-name="Vanilla Midnight" data-price="240">Add To Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding container reveal" id="notes">
+        <div class="spotlight-container">
+            <div class="spotlight-gallery">
+                <div class="spotlight-main-img">
+                    <img src="https://images.unsplash.com/photo-1547887537-6158d64c35b3?auto=format&fit=crop&w=800&q=80" alt="Spotlight Perfume">
+                </div>
+            </div>
+            <div class="spotlight-details">
+                <span class="product-notes-tag">Flagship Signature</span>
+                <h2 style="font-size: 3rem; margin-bottom: 10px;">Ambre Impérial</h2>
+                <p style="color: var(--text-muted); margin-bottom: 20px;">A masterclass in contrast: smoldering rare amber combined with crisp Calabrian bergamot and Madagascar vanilla bean.</p>
+                
+                <div class="notes-pyramid">
+                    <div class="note-item">
+                        <strong>Top Notes</strong>
+                        <span>Calabrian Bergamot, Pink Peppercorn, Cardamom</span>
+                    </div>
+                    <div class="note-item">
+                        <strong>Heart Notes</strong>
+                        <span>Turkish Rose, Smoked Myrrh, Incense</span>
+                    </div>
+                    <div class="note-item">
+                        <strong>Base Notes</strong>
+                        <span>Golden Amber, Aged Patchouli, Bourbon Vanilla</span>
+                    </div>
+                </div>
+
+                <div class="size-selector">
+                    <button class="size-btn active">50 ml</button>
+                    <button class="size-btn">100 ml</button>
+                    <button class="size-btn">200 ml</button>
+                </div>
+
+                <button class="btn btn-primary add-to-cart-btn" data-name="Ambre Impérial" data-price="280">Add to Cart — €280</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding container reveal">
+        <div class="section-header">
+            <h2>The Art of Creation</h2>
+            <p>Our uncompromising four-stage formulation protocol</p>
+        </div>
+        <div class="process-steps">
+            <div class="step-card">
+                <div class="step-num">01</div>
+                <h3>Sourcing</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Procuring rare botanicals from sustainable family estates globally.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-num">02</div>
+                <h3>Blending</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Hand-measured extractions mixed by master perfumers in Paris.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-num">03</div>
+                <h3>Aging</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Maceration in dark French oak barrels for 90 days.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-num">04</div>
+                <h3>Bottling</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Hand-poured into heavy lead-crystal glass with gold detail.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding container reveal" id="story">
+        <div class="story-container">
+            <div class="story-img">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80" alt="Master Perfumer">
+            </div>
+            <div>
+                <span class="product-notes-tag">In-House Nose</span>
+                <h2 style="font-size: 2.5rem; margin-bottom: 16px;">Jean-Luc Moreau</h2>
+                <p style="color: var(--text-muted); margin-bottom: 20px;">"Fragrance is memory preserved in liquid form. At Ambre Noir, we do not follow trends; we bottle raw emotion and timeless elegance."</p>
+                <p style="color: var(--text-muted);">Founded in 2013 in the heart of Paris, our atelier focuses on high-concentration Extraits de Parfum that evolve uniquely on each wearer's skin.</p>
+                
+                <div class="counters-grid" id="counters">
+                    <div class="counter-item">
+                        <h3 class="counter" data-target="13">0</h3>
+                        <p>Years of Heritage</p>
+                    </div>
+                    <div class="counter-item">
+                        <h3 class="counter" data-target="28">0</h3>
+                        <p>Unique Formulas</p>
+                    </div>
+                    <div class="counter-item">
+                        <h3 class="counter" data-target="42">0</h3>
+                        <p>Global Boutiques</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding container reveal">
+        <div class="section-header">
+            <h2>Rare Ingredients</h2>
+            <p>Sourced with devotion from around the world</p>
+        </div>
+        <div class="ingredients-grid">
+            <div class="ingredient-card">
+                <div class="ingredient-img">
+                    <img src="https://images.unsplash.com/photo-1615397349754-cfa2066a298e?auto=format&fit=crop&w=600&q=80" alt="Oud">
+                </div>
+                <div class="ingredient-info">
+                    <span class="ingredient-origin">Assam, India</span>
+                    <h4>Aged Agarwood</h4>
+                    <p style="color: var(--text-muted); font-size: 0.85rem;">Naturally harvested 25-year resinous agarwood.</p>
+                </div>
+            </div>
+            <div class="ingredient-card">
+                <div class="ingredient-img">
+                    <img src="https://images.unsplash.com/photo-1508746829417-e6f548d8d6ed?auto=format&fit=crop&w=600&q=80" alt="Rose">
+                </div>
+                <div class="ingredient-info">
+                    <span class="ingredient-origin">Grasse, France</span>
+                    <h4>Rose de Mai</h4>
+                    <p style="color: var(--text-muted); font-size: 0.85rem;">Hand-picked at dawn to preserve vital aromatic oils.</p>
+                </div>
+            </div>
+            <div class="ingredient-card">
+                <div class="ingredient-img">
+                    <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=600&q=80" alt="Vanilla">
+                </div>
+                <div class="ingredient-info">
+                    <span class="ingredient-origin">Madagascar</span>
+                    <h4>Bourbon Vanilla</h4>
+                    <p style="color: var(--text-muted); font-size: 0.85rem;">Sun-cured dark vanilla pods rich with balsam sweetness.</p>
+                </div>
+            </div>
+            <div class="ingredient-card">
+                <div class="ingredient-img">
+                    <img src="https://images.unsplash.com/photo-1616949755610-8c9bbc08f138?auto=format&fit=crop&w=600&q=80" alt="Bergamot">
+                </div>
+                <div class="ingredient-info">
+                    <span class="ingredient-origin">Calabria, Italy</span>
+                    <h4>Sun Bergamot</h4>
+                    <p style="color: var(--text-muted); font-size: 0.85rem;">Cold-pressed citrus rind yielding bright radiance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding container reveal">
+        <div class="section-header">
+            <h2>Client Testimonials</h2>
+            <p>What connoisseurs say about Ambre Noir</p>
+        </div>
+        <div class="reviews-slider">
+            <div class="review-card">
+                <div class="reviewer-profile">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" class="reviewer-avatar" alt="User">
+                    <div>
+                        <h4>Elena Rostova</h4>
+                        <span style="font-size: 0.75rem; color: var(--text-muted);">Verified Collector</span>
+                    </div>
+                </div>
+                <div class="stars">★★★★★</div>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">"Santal Royal is perfection. The longevity is incredible—over 14 hours on skin."</p>
+            </div>
+            <div class="review-card">
+                <div class="reviewer-profile">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80" class="reviewer-avatar" alt="User">
+                    <div>
+                        <h4>Marcus Vance</h4>
+                        <span style="font-size: 0.75rem; color: var(--text-muted);">Verified Buyer</span>
+                    </div>
+                </div>
+                <div class="stars">★★★★★</div>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">"The packaging feels like opening fine jewelry. Unmatched luxury quality."</p>
+            </div>
+            <div class="review-card">
+                <div class="reviewer-profile">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80" alt="User" class="reviewer-avatar">
+                    <div>
+                        <h4>Sophia Chen</h4>
+                        <span style="font-size: 0.75rem; color: var(--text-muted);">Verified Buyer</span>
+                    </div>
+                </div>
+                <div class="stars">★★★★★</div>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">"Rose de Nuit is intoxicating. I receive compliments everywhere I go."</p>
+            </div>
+            <div class="review-card">
+                <div class="reviewer-profile">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80" alt="User" class="reviewer-avatar">
+                    <div>
+                        <h4>Julian Thorne</h4>
+                        <span style="font-size: 0.75rem; color: var(--text-muted);">Verified Buyer</span>
+                    </div>
+                </div>
+                <div class="stars">★★★★★</div>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">"Fast international delivery and the complimentary sample was exquisite."</p>
+            </div>
+            <div class="review-card">
+                <div class="reviewer-profile">
+                    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&q=80" alt="User" class="reviewer-avatar">
+                    <div>
+                        <h4>Claire Dubois</h4>
+                        <span style="font-size: 0.75rem; color: var(--text-muted);">Fragrance Critic</span>
+                    </div>
+                </div>
+                <div class="stars">★★★★★</div>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">"A true Parisian masterclass in artistic perfumery."</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding container reveal">
+        <div class="section-header">
+            <h2>Discovery & Gift Sets</h2>
+            <p>Curated collections for the discerning connoisseur</p>
+        </div>
+        <div class="bundles-grid">
+            <div class="bundle-card">
+                <h3>The Vault Discovery Set</h3>
+                <p style="color: var(--text-muted); font-size: 0.85rem;">5 x 10ml Travel Extraits</p>
+                <div class="bundle-price">€120</div>
+                <button class="btn btn-primary add-to-cart-btn" data-name="Vault Discovery Set" data-price="120">Order Set</button>
+            </div>
+            <div class="bundle-card">
+                <h3>Noir Private Collection</h3>
+                <p style="color: var(--text-muted); font-size: 0.85rem;">3 x 50ml Bestsellers in Wooden Chest</p>
+                <div class="bundle-price">€580</div>
+                <button class="btn btn-primary add-to-cart-btn" data-name="Noir Private Collection" data-price="580">Order Set</button>
+            </div>
+            <div class="bundle-card">
+                <h3>Bespoke Gift Box</h3>
+                <p style="color: var(--text-muted); font-size: 0.85rem;">1 x 100ml + Hand-poured Candle</p>
+                <div class="bundle-price">€340</div>
+                <button class="btn btn-primary add-to-cart-btn" data-name="Bespoke Gift Box" data-price="340">Order Set</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding container reveal">
+        <div class="section-header">
+            <h2>Frequently Asked Questions</h2>
+        </div>
+        <div class="faq-accordion">
+            <div class="faq-item">
+                <button class="faq-question">Are your fragrances cruelty-free? <span>+</span></button>
+                <div class="faq-answer">
+                    <p>Yes, all Ambre Noir formulas are 100% cruelty-free and never tested on animals.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">What is the concentration of your fragrances? <span>+</span></button>
+                <div class="faq-answer">
+                    <p>Our fragrances are formulated as Extrait de Parfum with a high concentration of 25-30% perfume oils for exceptional longevity.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Do you ship internationally? <span>+</span></button>
+                <div class="faq-answer">
+                    <p>We ship worldwide via Express Courier with custom duty fees included at checkout.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Can I try samples before buying full bottles? <span>+</span></button>
+                <div class="faq-answer">
+                    <p>Every full bottle order includes a free 2ml sample. You also receive a voucher toward your full bottle purchase with our Discovery Set.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">What is your return policy? <span>+</span></button>
+                <div class="faq-answer">
+                    <p>We offer 30-day hassle-free returns on unopened full-size bottles.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container section-padding reveal" id="contact">
+        <div class="newsletter-section">
+            <h2 style="font-size: 2.5rem; margin-bottom: 12px;">Join The Private Circle</h2>
+            <p style="color: var(--text-muted);">Subscribe for private vintage allocations, event invitations, and new releases.</p>
+            <form class="newsletter-form" id="newsletterForm">
+                <input type="email" placeholder="Enter your email address..." required>
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo font-heading">AMBRE NOIR</div>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">Parisian Niche Perfumery redefining luxury through rare artisan extraction.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#fragrances">Fragrances</a></li>
+                        <li><a href="#notes">Spotlight</a></li>
+                        <li><a href="#story">Story</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Customer Care</h4>
+                    <ul>
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">Track Order</a></li>
+                        <li><a href="#">Contact Atelier</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Social</h4>
+                    <ul>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Pinterest</a></li>
+                        <li><a href="#">Journal</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Ambre Noir Paris. All rights reserved.</p>
+                <p>Designed for Niche Fragrance Connoisseurs</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="cart-drawer-overlay" id="cartOverlay"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h3 class="font-heading" style="font-size: 1.5rem;">Your Cart</h3>
+            <button id="cartClose" style="background:none; color:var(--text-light); font-size:1.5rem;">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItemsContainer">
+            </div>
+        <div class="cart-footer">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 20px; font-weight: 600;">
+                <span>Subtotal</span>
+                <span id="cartSubtotal">€0</span>
+            </div>
+            <button class="btn btn-primary" style="width: 100%;" id="checkoutBtn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="actionModal">
+        <div class="modal-card">
+            <div class="modal-icon">✨</div>
+            <h3 id="modalTitle" style="font-size: 1.8rem; margin-bottom: 8px;">Action Confirmed</h3>
+            <p id="modalDesc" style="color: var(--text-muted); margin-bottom: 24px; font-size: 0.95rem;">Your request has been successfully processed.</p>
+            <button class="btn btn-primary" id="modalCloseBtn" style="width: 100%;">Close</button>
+        </div>
+    </div>
+
+    <script>
+        // --- CART SYSTEM STATE ---
+        let cart = [];
+
+        // --- DOM ELEMENTS ---
+        const cartBtn = document.getElementById('cartBtn');
+        const cartDrawer = document.getElementById('cartDrawer');
+        const cartOverlay = document.getElementById('cartOverlay');
+        const cartClose = document.getElementById('cartClose');
+        const cartItemsContainer = document.getElementById('cartItemsContainer');
+        const cartCountEl = document.getElementById('cartCount');
+        const cartSubtotalEl = document.getElementById('cartSubtotal');
+        const checkoutBtn = document.getElementById('checkoutBtn');
+
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileNavClose = document.getElementById('mobileNavClose');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        const actionModal = document.getElementById('actionModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDesc = document.getElementById('modalDesc');
+        const modalCloseBtn = document.getElementById('modalCloseBtn');
+
+        // --- CUSTOM MODAL POPUP ---
+        function showModal(title, message) {
+            modalTitle.textContent = title;
+            modalDesc.textContent = message;
+            actionModal.classList.add('active');
+        }
+
+        modalCloseBtn.addEventListener('click', () => actionModal.classList.remove('active'));
+        actionModal.addEventListener('click', (e) => {
+            if (e.target === actionModal) actionModal.classList.remove('active');
+        });
+
+        // --- CART DRAWER LOGIC ---
+        function toggleCart() {
+            cartDrawer.classList.toggle('active');
+            cartOverlay.classList.toggle('active');
+        }
+
+        cartBtn.addEventListener('click', toggleCart);
+        cartClose.addEventListener('click', toggleCart);
+        cartOverlay.addEventListener('click', toggleCart);
+
+        function updateCartUI() {
+            cartItemsContainer.innerHTML = '';
+            let total = 0;
+            let totalItems = 0;
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p style="text-align:center; color: var(--text-muted); margin-top: 40px;">Your cart is empty.</p>';
+            } else {
+                cart.forEach((item, index) => {
+                    total += item.price * item.quantity;
+                    totalItems += item.quantity;
+
+                    const itemEl = document.createElement('div');
+                    itemEl.className = 'cart-item';
+                    itemEl.innerHTML = `
+                        <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=150&q=80" alt="${item.name}">
+                        <div style="flex-grow:1;">
+                            <h4 style="font-size: 1rem;">${item.name}</h4>
+                            <p style="color: var(--accent-gold); font-size: 0.9rem;">€${item.price} x ${item.quantity}</p>
+                        </div>
+                        <button onclick="removeItem(${index})" style="background:none; color:var(--text-muted); font-size: 1.2rem;">&times;</button>
+                    `;
+                    cartItemsContainer.appendChild(itemEl);
+                });
+            }
+
+            cartCountEl.textContent = totalItems;
+            cartSubtotalEl.textContent = `€${total}`;
+        }
+
+        function addToCart(name, price) {
+            const existingItem = cart.find(item => item.name === name);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ name, price: parseFloat(price), quantity: 1 });
+            }
+            updateCartUI();
+            showModal("Added To Cart", `${name} has been added to your shopping bag.`);
+        }
+
+        function removeItem(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const name = button.getAttribute('data-name');
+                const price = button.getAttribute('data-price');
+                addToCart(name, price);
+            });
+        });
+
+        checkoutBtn.addEventListener('click', () => {
+            if (cart.length === 0) {
+                showModal("Cart Empty", "Please add items to your cart before checking out.");
+            } else {
+                cart = [];
+                updateCartUI();
+                toggleCart();
+                showModal("Order Placed", "Thank you for your order! Confirmation has been sent to your email.");
+            }
+        });
+
+        // --- MOBILE NAV LOGIC ---
+        hamburgerBtn.addEventListener('click', () => mobileNav.classList.add('active'));
+        mobileNavClose.addEventListener('click', () => mobileNav.classList.remove('active'));
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => mobileNav.classList.remove('active'));
+        });
+
+        // --- FAQ ACCORDION ---
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                const answer = faqItem.querySelector('.faq-answer');
+                
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    if (item !== faqItem) {
+                        item.classList.remove('active');
+                        item.querySelector('.faq-answer').style.maxHeight = null;
+                    }
+                });
+
+                faqItem.classList.toggle('active');
+                if (faqItem.classList.contains('active')) {
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                } else {
+                    answer.style.maxHeight = null;
+                }
+            });
+        });
+
+        // --- SPOTLIGHT SIZE SELECTOR ---
+        document.querySelectorAll('.size-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+
+        // --- FORM SUBMISSION MODAL ---
+        document.getElementById('newsletterForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            showModal("Welcome to The Circle", "You have been successfully subscribed to private communications.");
+            e.target.reset();
+        });
+
+        // --- SCROLL REVEAL ANIMATION ---
+        const revealElements = document.querySelectorAll('.reveal');
+        function checkReveal() {
+            const triggerBottom = window.innerHeight * 0.85;
+            revealElements.forEach(el => {
+                const top = el.getBoundingClientRect().top;
+                if (top < triggerBottom) {
+                    el.classList.add('active');
+                }
+            });
+        }
+        window.addEventListener('scroll', checkReveal);
+        checkReveal();
+
+        // --- ANIMATED COUNTERS ---
+        let animated = false;
+        function animateCounters() {
+            const countersSection = document.getElementById('counters');
+            const position = countersSection.getBoundingClientRect().top;
+            if (position < window.innerHeight && !animated) {
+                animated = true;
+                document.querySelectorAll('.counter').forEach(counter => {
+                    const target = +counter.getAttribute('data-target');
+                    let count = 0;
+                    const increment = target / 50;
+                    const updateCount = () => {
+                        count += increment;
+                        if (count < target) {
+                            counter.innerText = Math.ceil(count);
+                            setTimeout(updateCount, 40);
+                        } else {
+                            counter.innerText = target;
+                        }
+                    };
+                    updateCount();
+                });
+            }
+        }
+        window.addEventListener('scroll', animateCounters);
+    </script>
+</body>
+</html>
